@@ -1,1 +1,1 @@
-# e2e-cypress
+# Showcase with Cypress
