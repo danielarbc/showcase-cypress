@@ -17,6 +17,10 @@ To set up the project, run the following command:
 npm install
 ```
 
+## Environment Variables
+
+Make a copy of the `cypress.env.example.json` file, rename to `cypress.env.json` and fill data
+
 ## How to Run
 
 You can run the tests in two ways. Choose the one that suits your workflow:
