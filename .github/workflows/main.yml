@@ -10,3 +10,11 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        env:
+          CYPRESS_STANDARD_USER: ${{secrets.CYPRESS_STANDARD_USER}}
+          CYPRESS_LOCKED_OUT_USER: ${{secrets.CYPRESS_LOCKED_OUT_USER}}
+          CYPRESS_PROBLEM_USER: ${{secrets.CYPRESS_PROBLEM_USER}}
+          CYPRESS_PERFORMANCE_GLITCH_USER: ${{secrets.CYPRESS_PERFORMANCE_GLITCH_USER}}
+          CYPRESS_ERROR_USER: ${{secrets.CYPRESS_ERROR_USER}}
+          CYPRESS_VISUAL_USER: ${{secrets.CYPRESS_VISUAL_USER}}
+          CYPRESS_PASSWORD: ${{secrets.CYPRESS_PASSWORD}}
