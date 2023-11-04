@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "prettier:format": "npx prettier . --write"
   },
   "repository": {
