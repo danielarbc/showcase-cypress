@@ -1,0 +1,28 @@
+{
+  "name": "showcase-cypress",
+  "version": "1.0.0",
+  "description": "This GitHub repository serves as a canvas for displaying my proficiency in software testing and quality assurance. Using a fictitious website as the canvas, I've created a comprehensive software testing project, powered by Cypress, to demonstrate my abilities.",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "prettier:format": "npx prettier . --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielarbc/showcase-cypress.git"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "Daniela Cardoso",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielarbc/showcase-cypress/issues"
+  },
+  "homepage": "https://github.com/danielarbc/showcase-cypress#readme",
+  "devDependencies": {
+    "cypress": "^13.4.0",
+    "prettier": "3.0.3"
+  }
+}
