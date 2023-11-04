@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/danielarbc/showcase-cypress#readme",
   "devDependencies": {
+    "@faker-js/faker": "^8.2.0",
     "cypress": "^13.4.0",
     "prettier": "3.0.3"
   }
