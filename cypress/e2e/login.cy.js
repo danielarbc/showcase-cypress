@@ -1,3 +1,5 @@
+import { faker } from "@faker-js/faker"
+
 const TEST_IDS = {
   usernameField: 'input[data-test="username"]',
   passwordField: 'input[data-test="password"]',
@@ -32,7 +34,7 @@ describe("Login", () => {
     )
   })
   it("Login with wrong username - should show an error", () => {
-    cy.get(TEST_IDS.usernameField).type("example")
+    cy.get(TEST_IDS.usernameField).type(faker.internet.domainWord())
     cy.get(TEST_IDS.passwordField).type(Cypress.env("PASSWORD"))
     cy.get(TEST_IDS.loginButton).click()
     cy.get(TEST_IDS.loginErrorMessage).should(
@@ -50,7 +52,7 @@ describe("Login", () => {
   })
   it("Login with wrong password - should show an error", () => {
     cy.get(TEST_IDS.usernameField).type(Cypress.env("STANDARD_USER"))
-    cy.get(TEST_IDS.passwordField).type("example")
+    cy.get(TEST_IDS.passwordField).type(faker.internet.password())
     cy.get(TEST_IDS.loginButton).click()
     cy.get(TEST_IDS.loginErrorMessage).should(
       "have.text",
