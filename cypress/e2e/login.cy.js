@@ -19,11 +19,15 @@ describe("Login", () => {
   beforeEach("Visit", () => {
     cy.visit("/")
   })
-  it("Success login", () => {
+  it("Success login and logout", () => {
     cy.get(TEST_IDS.usernameField).type(Cypress.env("STANDARD_USER"))
     cy.get(TEST_IDS.passwordField).type(Cypress.env("PASSWORD"))
     cy.get(TEST_IDS.loginButton).click()
-    cy.url().should("include", "/inventory.html")
+    cy.url().should("equal", Cypress.config().baseUrl + "/inventory.html")
+    cy.get(".bm-burger-button").click()
+    cy.get("#logout_sidebar_link").click()
+    cy.get(".login_logo").should("exist")
+    cy.url().should("equal", Cypress.config().baseUrl + "/")
   })
   it("Login with empty username - should show an error", () => {
     cy.get(TEST_IDS.passwordField).type(Cypress.env("PASSWORD"))
