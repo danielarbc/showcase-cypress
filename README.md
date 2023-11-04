@@ -19,7 +19,7 @@ npm install
 
 ## Environment Variables
 
-Make a copy of the `cypress.env.example.json` file, rename to `cypress.env.json` and fill data
+Make a copy of the `cypress.env.example.json` file, rename to `cypress.env.json` and fill data according to [Sauce Demo Site](https://www.saucedemo.com/)
 
 ## How to Run
 
