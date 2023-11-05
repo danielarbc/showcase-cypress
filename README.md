@@ -44,7 +44,7 @@ npm run cypress:run
 
 ### About the used plugins
 
-You can read about the used plugins in the [Plugin Docs](docs\plugins.md)
+You can read about the used plugins in the [Plugin Docs](docs/plugins.md)
 
 ## Get in Touch
 
