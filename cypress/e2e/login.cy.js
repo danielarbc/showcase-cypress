@@ -21,7 +21,9 @@ describe("Login", () => {
   })
   it("Success login and logout", () => {
     cy.get(TEST_IDS.usernameField).type(Cypress.env("STANDARD_USER"))
-    cy.get(TEST_IDS.passwordField).type(Cypress.env("PASSWORD"))
+    cy.get(TEST_IDS.passwordField).type(Cypress.env("PASSWORD"), {
+      sensitive: true,
+    })
     cy.get(TEST_IDS.loginButton).click()
     cy.url().should("equal", Cypress.config().baseUrl + "/inventory.html")
     cy.get(".bm-burger-button").click()
@@ -30,7 +32,9 @@ describe("Login", () => {
     cy.url().should("equal", Cypress.config().baseUrl + "/")
   })
   it("Login with empty username - should show an error", () => {
-    cy.get(TEST_IDS.passwordField).type(Cypress.env("PASSWORD"))
+    cy.get(TEST_IDS.passwordField).type(Cypress.env("PASSWORD"), {
+      sensitive: true,
+    })
     cy.get(TEST_IDS.loginButton).click()
     cy.get(TEST_IDS.loginErrorMessage).should(
       "have.text",
@@ -39,7 +43,9 @@ describe("Login", () => {
   })
   it("Login with wrong username - should show an error", () => {
     cy.get(TEST_IDS.usernameField).type(faker.internet.domainWord())
-    cy.get(TEST_IDS.passwordField).type(Cypress.env("PASSWORD"))
+    cy.get(TEST_IDS.passwordField).type(Cypress.env("PASSWORD"), {
+      sensitive: true,
+    })
     cy.get(TEST_IDS.loginButton).click()
     cy.get(TEST_IDS.loginErrorMessage).should(
       "have.text",
@@ -65,7 +71,9 @@ describe("Login", () => {
   })
   it("Login with locked out user", () => {
     cy.get(TEST_IDS.usernameField).type(Cypress.env("LOCKED_OUT_USER"))
-    cy.get(TEST_IDS.passwordField).type(Cypress.env("PASSWORD"))
+    cy.get(TEST_IDS.passwordField).type(Cypress.env("PASSWORD"), {
+      sensitive: true,
+    })
     cy.get(TEST_IDS.loginButton).click()
     cy.get(TEST_IDS.loginErrorMessage).should(
       "have.text",
