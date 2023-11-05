@@ -1,6 +1,7 @@
 # Portfolio - Showcase with Cypress
 
 This GitHub repository serves as a showcase of my expertise in software testing and quality assurance. Using a fictitious website as the basis, I've developed a comprehensive software testing project powered by Cypress to demonstrate my capabilities.
+Website used: [Sauce Demo Site](https://www.saucedemo.com/)
 
 ## Prerequisites
 
@@ -40,6 +41,10 @@ To run Cypress tests in headless mode, which is suitable for automated testing a
 ```bash
 npm run cypress:run
 ```
+
+### About the used plugins
+
+You can read about the used plugins in the [Plugin Docs](docs\plugins.md)
 
 ## Get in Touch
 
