@@ -18,4 +18,4 @@ You can configure it as a pre-commit step, but I'm the only one working on this 
 
 A modern JavaScript utility library delivering modularity, performance & extras. Webpage: [https://lodash.com/](https://lodash.com/)
 
-I'm using this plugin in the checkout command to get the property "innerText". However, I can also use it to test Flaky Tests as the [Cypress documentation recommends](https://www.cypress.io/blog/2020/12/03/retry-rerun-repeat#repeat).
+Cypress natively imports Lodash. I'm using this plugin in the checkout command to get the property "innerText". However, I can also use it to test Flaky Tests as the [Cypress documentation recommends](https://www.cypress.io/blog/2020/12/03/retry-rerun-repeat#repeat).
