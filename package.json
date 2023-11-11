@@ -24,6 +24,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.2.0",
     "cypress": "^13.4.0",
+    "lodash": "^4.17.21",
     "prettier": "3.0.3"
   }
 }
