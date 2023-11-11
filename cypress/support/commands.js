@@ -1,30 +1,4 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
-//Overwrite type()
+// * Overwrite
 
 Cypress.Commands.overwrite("type", (originalFn, element, text, options) => {
   if (options && options.sensitive) {
@@ -41,7 +15,7 @@ Cypress.Commands.overwrite("type", (originalFn, element, text, options) => {
   return originalFn(element, text, options)
 })
 
-// Login
+// * Login
 
 Cypress.Commands.add("login", (user, password) => {
   const TEST_IDS = {
@@ -57,13 +31,12 @@ Cypress.Commands.add("login", (user, password) => {
   cy.get(TEST_IDS.loginButton).click()
 })
 
-// Checkout
+// * Checkout
 
 Cypress.Commands.add("addProductToCart", (productNumberList) => {
   for (let index in productNumberList) {
     cy.fixture("products.json").then((products) => {
       const product = products[productNumberList[index]]
-      cy.log(product.productName)
       cy.get(`[data-test="add-to-cart-${product.dataTestName}"]`).click()
     })
   }
@@ -73,6 +46,7 @@ Cypress.Commands.add("goToCart", () => {
   cy.get(".shopping_cart_link").click()
   cy.get('[data-test="checkout"]').click()
 })
+
 Cypress.Commands.add(
   "fillPersonalDataAtCheckout",
   (firstName, lastName, postalCode) => {
@@ -96,7 +70,6 @@ Cypress.Commands.add("validateCheckoutInfos", (productNumberList) => {
       productPriceList.push(productsList[index].productPrice)
     }
 
-    cy.log("**Product Name**")
     cy.get(".inventory_item_name")
       .should("have.length", productNumberList.length)
       .then(($els) => {
@@ -104,20 +77,16 @@ Cypress.Commands.add("validateCheckoutInfos", (productNumberList) => {
       })
       .should("deep.equal", productNameList)
 
-    cy.log("**Product Desc**")
     cy.get(".inventory_item_desc")
       .should("have.length", productNumberList.length)
       .then(($els) => {
-        // jQuery => Array => get "innerText" from each
         return Cypress._.map(Cypress.$.makeArray($els), "innerText")
       })
       .should("deep.equal", productDescriptionList)
 
-    cy.log("**Product Price**")
     cy.get(".inventory_item_price")
       .should("have.length", productNumberList.length)
       .then(($els) => {
-        // jQuery => Array => get "innerText" from each
         return Cypress._.map(Cypress.$.makeArray($els), "innerText")
       })
       .should("deep.equal", productPriceList)
@@ -141,6 +110,7 @@ Cypress.Commands.add("validateCheckoutInfos", (productNumberList) => {
       /Total: \${1,}([0-9]{1,}\.[0-9]{1,}|[0-9]{1,})\.([0-9]{2})/,
     )
 })
+
 Cypress.Commands.add("finishOrder", () => {
   cy.get('[data-test="finish"]').click()
   cy.get(".complete-header").contains("Thank you for your order!")
