@@ -15,3 +15,7 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
+      - name: Cypress run mobile
+        uses: cypress-io/github-action@v6
+        with:
+          config: viewportHeight=1243, viewportWidth=1792
