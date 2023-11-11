@@ -13,5 +13,9 @@ jobs:
           echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run
+      - name: Cypress run - Desktop
         uses: cypress-io/github-action@v6
+      - name: Cypress run - Mobile
+        uses: cypress-io/github-action@v6
+        with:
+          config: "viewportWidth=390,viewportHeight=844"
